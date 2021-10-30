@@ -6,7 +6,72 @@ ModelImporter:
   - first:
       74: 1827226128182048838
     second: Take 001
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eye_LF_cornea1
+    second: {fileID: 2100000, guid: e0f12a0deaec0654f9acde06d78d11ff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eye_LF_sclera1
+    second: {fileID: 2100000, guid: ec2d2b8a24d96e142a1fc0c54beff1a0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eye_LF_tearline1
+    second: {fileID: 2100000, guid: 0ceddd9a1a964434eabf3f08b44592fe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eye_RT_cornea1
+    second: {fileID: 2100000, guid: 73fb73d6eb1d02e44afef69c10f58d3c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eye_RT_sclera1
+    second: {fileID: 2100000, guid: ba00892c07fbcff4abd57f1271d3aa4a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eye_RT_tearline1
+    second: {fileID: 2100000, guid: ec11f836cc96b754e988770cbbcf9bdc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eyelash_LF1
+    second: {fileID: 2100000, guid: 56fa5cd71e39e2b4d9f694f91acda0dd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eyelash_RT1
+    second: {fileID: 2100000, guid: e66c775881234584eaa2029a76141d5d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hair1
+    second: {fileID: 2100000, guid: cb7a339375f15264b9b56bdb84701aea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: neutral_head1
+    second: {fileID: 2100000, guid: d7fc8885388e53c40b1233b379722b1d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tongue1
+    second: {fileID: 2100000, guid: 2f9e8e5cb757b094daca9794773597b3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tooth_lower1
+    second: {fileID: 2100000, guid: 06b3efac17e40e94e8a6ecc9c6e597ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tooth_upper1
+    second: {fileID: 2100000, guid: e44398399e6402145bbfecd29e428bfb, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
