@@ -5,19 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/LG_AI/Scenes/01. Intro (ppt 1~2).unity
     guid: 091c7a1f87725bd4fa32a3d7551708c2
-  - enabled: 1
+  - enabled: 0
     path: Assets/LG_AI/Scenes/02. Home (ppt 3~4).unity
     guid: 675e9e704fb2d1f4a9e7aad0044c472c
-  - enabled: 1
+  - enabled: 0
     path: Assets/LG_AI/Scenes/03. SettingGuide (ppt 5~6).unity
     guid: c379bc103c4f2fe46b85af9d2c7c7c83
   - enabled: 1
-    path: Assets/LG_AI/Scenes/04. VideioCapture (ppt 7~11) 1.unity
+    path: Assets/LG_AI/Scenes/04. VideoCapture (ppt 7~11).unity
     guid: bb4119e276deff342ac684e161795d07
-  - enabled: 1
-    path: Assets/LG_AI/Scenes/04. VideioInfo (ppt 12).unity
+  - enabled: 0
+    path: Assets/LG_AI/Scenes/05. VideoInfo (ppt 12).unity
     guid: d36f3f4315dc94d4da35e6870eabd596
   m_configObjects: {}
