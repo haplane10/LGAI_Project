@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/LG_AI/Scenes/05. VideoInfo (ppt 12).unity
     guid: d36f3f4315dc94d4da35e6870eabd596
+  - enabled: 0
+    path: Assets/LG_AI/Scenes/04. VideoCapture (ppt 7~11) Test.unity
+    guid: b878f075db654bf449d999600fb793ac
   m_configObjects: {}
