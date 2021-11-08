@@ -25,6 +25,8 @@ namespace NatSuite.Examples {
         private AudioInput audioInput;
         private AudioSource microphoneSource;
 
+        public string File_path;
+
         private IEnumerator Start () {
             // Start microphone
             microphoneSource = gameObject.AddComponent<AudioSource>();
@@ -63,11 +65,12 @@ namespace NatSuite.Examples {
             // Stop recording
             audioInput?.Dispose();
             cameraInput.Dispose();
-            var path = await recorder.FinishWriting();
+            File_path = await recorder.FinishWriting();
+            NetworkManager.Instance.VideoFilePath = File_path;
             // Playback recording
-            Debug.Log($"Saved recording to: {path}");
-            videoPath.text = path;
-            Handheld.PlayFullScreenMovie($"file://{path}");
+            Debug.Log($"Saved recording to: {File_path}");
+            videoPath.text = File_path;
+            Handheld.PlayFullScreenMovie($"file://{File_path}");
         }
     }
 }
