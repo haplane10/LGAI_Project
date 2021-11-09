@@ -41,7 +41,7 @@ public class NetworkManager : MonoBehaviour
         //var _fileName = Path.GetFileName(videoFilePath);
         //var _fileByte = File.ReadAllBytes(videoFilePath);
         //var _fileByte = File.ReadAllBytes("E:/Unity3D/LGAI_Project/recording_2021_11_09_00_13_03_261.mp4");
-        var _fileByte = File.ReadAllBytes("D:/Test/1.png");
+        var _fileByte = File.ReadAllBytes("D:/Video/111.png");
 
 
         // FileInfo _info = Directory.GetFiles(videoFilePath);
@@ -51,25 +51,64 @@ public class NetworkManager : MonoBehaviour
 
     IEnumerator co_UploadVideo()
     {
-        yield return null;
+        //WWW localFile = new WWW("file:///" + "D:/Video/123.mp4");
+        //yield return localFile;
+        //if (localFile.error == null)
+        //    Debug.Log("Loaded file successfully");
+        //else
+        //{
+        //    Debug.Log("Open file error: " + localFile.error);
+        //    yield break; // stop the coroutine here
+        //}
+
+        //WWWForm postForm = new WWWForm();
+
+        //postForm.AddBinaryData("media", localFile.bytes, localFile.text);
+        //WWW upload = new WWW("http://3.34.113.181/v1/files", postForm);
+        //yield return upload;
+        //if (upload.error == null)
+        //    Debug.Log("upload done :" + upload.text);
+        //else
+        //    Debug.Log("Error during upload: " + upload.error);
+
+
+        //    yield return null;
         //        GET http://3.34.113.181/v1/files
         //POST http://3.34.113.181/v1/files 
         // -media(multipart)
 
         //string _json = JsonUtility.ToJson(ri);
-        string _json = "{\"media\":\"recording_2021_11_09_00_13_03_261.mp4\"}";
+        //string _json = "{\"media\":\"recording_2021_11_09_00_13_03_261.mp4\"}";
 
-    //string url = "http://3.34.113.181/v1/files - media(multipart)";
-    string url = "http://3.34.113.181/v1/files";
+        //string url = "http://3.34.113.181/v1/files - media(multipart)";
+        string url = "http://3.34.113.181/v1/files/";
 
         byte[] bytes = GetFileData();
-       // byte[] bytes = System.Text.Encoding.UTF8.GetBytes(_json);
 
-        //UnityWebRequest www = UnityWebRequest.Post(url, "");
-        UnityWebRequest www = UnityWebRequest.Put(url, bytes);
+
+        List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
+        //formData.Add(new MultipartFormDataSection(bytes));
+        formData.Add(new MultipartFormFileSection("media", Application.dataPath + "112.png"));
+
+        //UnityWebRequest www = UnityWebRequest.Post(url, formData);
+        //yield return www.SendWebRequest();
+
+        //if (www.result != UnityWebRequest.Result.Success)
+        //{
+        //    Debug.Log(www.error);
+        //}
+        //else
+        //{
+        //    Debug.Log("Form upload complete!");
+        //}
+
+        //// byte[] bytes = System.Text.Encoding.UTF8.GetBytes(_json);
+
+        UnityWebRequest www = UnityWebRequest.Post(url, formData);
+        //UnityWebRequest www = UnityWebRequest.Put(url, bytes);
         //www.uploadHandler = new UploadHandlerRaw(bytes);
-        www.downloadHandler = new DownloadHandlerBuffer();
-        www.SetRequestHeader("Content-Type", "application/json");
+        //www.downloadHandler = new DownloadHandlerBuffer();
+        www.SetRequestHeader("Content-Type", "multipart/form-data");
 
         yield return www.SendWebRequest();
         if (!www.isNetworkError)
