@@ -41,7 +41,7 @@ public class NetworkManager : MonoBehaviour
         //var _fileName = Path.GetFileName(videoFilePath);
         //var _fileByte = File.ReadAllBytes(videoFilePath);
         //var _fileByte = File.ReadAllBytes("E:/Unity3D/LGAI_Project/recording_2021_11_09_00_13_03_261.mp4");
-        var _fileByte = File.ReadAllBytes("D:/Video/111.png");
+        var _fileByte = File.ReadAllBytes(Application.dataPath + "/112.png");
 
 
         // FileInfo _info = Directory.GetFiles(videoFilePath);
@@ -106,8 +106,8 @@ public class NetworkManager : MonoBehaviour
 
         UnityWebRequest www = UnityWebRequest.Post(url, formData);
         //UnityWebRequest www = UnityWebRequest.Put(url, bytes);
-        //www.uploadHandler = new UploadHandlerRaw(bytes);
-        //www.downloadHandler = new DownloadHandlerBuffer();
+        www.uploadHandler = new UploadHandlerRaw(bytes);
+        www.downloadHandler = new DownloadHandlerBuffer();
         www.SetRequestHeader("Content-Type", "multipart/form-data");
 
         yield return www.SendWebRequest();
