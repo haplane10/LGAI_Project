@@ -35,7 +35,7 @@ public class NetworkManager : MonoBehaviour
 
     public byte[] GetFileData()
     {
-        data.media = vido
+        //data.media = vido
 
         //var _dirName = Path.GetDirectoryName(videoFilePath);
         //var _fileName = Path.GetFileName(videoFilePath);
