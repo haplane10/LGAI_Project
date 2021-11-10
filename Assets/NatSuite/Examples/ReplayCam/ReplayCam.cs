@@ -70,7 +70,7 @@ namespace NatSuite.Examples {
             // Playback recording
             Debug.Log($"Saved recording to: {File_path}");
             videoPath.text = File_path;
-            Handheld.PlayFullScreenMovie($"file://{File_path}");
+            //Handheld.PlayFullScreenMovie($"file://{File_path}");
         }
     }
 }

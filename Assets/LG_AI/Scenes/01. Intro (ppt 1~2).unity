@@ -1351,10 +1351,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 762820670271692088, guid: 502721b22c60a6d44aca58c336713495, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 25f69d375453ff041954893b61109062, type: 2}
     - target: {fileID: 3541937381804245937, guid: 502721b22c60a6d44aca58c336713495, type: 3}
       propertyPath: m_BlendShapeWeights.Array.size
       value: 51
