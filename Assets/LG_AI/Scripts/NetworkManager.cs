@@ -41,7 +41,7 @@ public class NetworkManager : MonoBehaviour
         //var _fileName = Path.GetFileName(videoFilePath);
         //var _fileByte = File.ReadAllBytes(videoFilePath);
         //var _fileByte = File.ReadAllBytes("E:/Unity3D/LGAI_Project/recording_2021_11_09_00_13_03_261.mp4");
-        var _fileByte = File.ReadAllBytes(Application.dataPath + "/112.png");
+        var _fileByte = File.ReadAllBytes(Application.dataPath + "/123.mp4");
 
 
         // FileInfo _info = Directory.GetFiles(videoFilePath);
@@ -85,10 +85,28 @@ public class NetworkManager : MonoBehaviour
 
         byte[] bytes = GetFileData();
 
-
         List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
-        //formData.Add(new MultipartFormDataSection(bytes));
-        formData.Add(new MultipartFormFileSection("media", Application.dataPath + "112.png"));
+        //formData.Add(new MultipartFormDataSection("media"));
+        formData.Add(new MultipartFormFileSection("media", bytes, "123.mp4", "video/mp4"));
+
+        //UnityWebRequest www = UnityWebRequest.Post(url, formData);
+        //yield return www.SendWebRequest();
+
+        //if (www.result != UnityWebRequest.Result.Success)
+        //{
+        //    Debug.Log(www.error);
+        //}
+        //else
+        //{
+        //    Debug.Log("Form upload complete!");
+        //}
+
+        //List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
+        //formData.Add(new MultipartFormDataSection("meida"));
+        //formData.Add(new MultipartFormFileSection(bytes));
+
+        //WWWForm form = new WWWForm();
+        //form.AddBinaryData("meida", bytes, Application.dataPath + "/112.png");
 
         //UnityWebRequest www = UnityWebRequest.Post(url, formData);
         //yield return www.SendWebRequest();
@@ -106,31 +124,19 @@ public class NetworkManager : MonoBehaviour
 
         UnityWebRequest www = UnityWebRequest.Post(url, formData);
         //UnityWebRequest www = UnityWebRequest.Put(url, bytes);
-        www.uploadHandler = new UploadHandlerRaw(bytes);
-        www.downloadHandler = new DownloadHandlerBuffer();
-        www.SetRequestHeader("Content-Type", "multipart/form-data");
+        //www.uploadHandler = new UploadHandlerFile(Application.dataPath + "/112.png");
+        //www.downloadHandler = new DownloadHandlerBuffer();
+        //www.SetRequestHeader("Content-Type", "multipart/form-data");
 
         yield return www.SendWebRequest();
-        if (!www.isNetworkError)
+        if (www.result != UnityWebRequest.Result.Success)
         {
-            Debug.Log("www.text : " + www.downloadHandler.text + ", www.error : " + www.error);
+            Debug.Log(www.error);
         }
         else
         {
-            Debug.LogError("error : " + www.error);
+            Debug.Log("Form upload complete!");
         }
-
-        //RoomInfoResult rir = JsonUtility.FromJson<RoomInfoResult>(www.downloadHandler.text);
-        //if (rir.error.Count != 0)
-        //{
-        //    Debug.Log("에러지 뭐...");
-        //}
-        //else
-        //{
-        //    Debug.Log("정상 통과인가?");
-        //}
-
-
     }
 
     public void OnDownloadButtonClick()
