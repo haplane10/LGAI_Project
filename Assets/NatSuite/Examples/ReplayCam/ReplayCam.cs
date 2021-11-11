@@ -71,6 +71,7 @@ namespace NatSuite.Examples {
             Debug.Log($"Saved recording to: {File_path}");
             videoPath.text = File_path;
             //Handheld.PlayFullScreenMovie($"file://{File_path}");
+            NetworkManager.Instance.OnUploadButtonClick();
         }
     }
 }

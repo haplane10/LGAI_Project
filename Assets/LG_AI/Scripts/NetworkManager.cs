@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
+using TMPro;
 
 public class NetworkManager : MonoBehaviour
 {
@@ -10,6 +12,9 @@ public class NetworkManager : MonoBehaviour
 
     private string videoFilePath;
     private Data data = new Data();
+    [SerializeField] Image[] uploadImages;
+    [SerializeField] TextMeshProUGUI uploadProgress;
+
     public string VideoFilePath { get => videoFilePath; set => videoFilePath = value; }
 
     private void Awake()
@@ -59,7 +64,20 @@ public class NetworkManager : MonoBehaviour
 
         UnityWebRequest www = UnityWebRequest.Post(url, formData);
 
-        yield return www.SendWebRequest();
+        var op = www.SendWebRequest();
+
+        while (!www.isDone)
+        {
+            float progress = Mathf.Clamp01(www.uploadProgress / 0.9f);
+            uploadImages[0].fillAmount = progress;
+            uploadImages[1].fillAmount = progress;
+
+            progress = Mathf.Round(progress * 100);
+            uploadProgress.text = progress + "%";
+            
+            yield return new WaitForEndOfFrame();
+        }
+
         if (www.result != UnityWebRequest.Result.Success)
         {
             Debug.Log(www.error);
@@ -68,6 +86,8 @@ public class NetworkManager : MonoBehaviour
         {
             Debug.Log("Form upload complete!");
         }
+
+        www.Dispose();
     }
 
     public void OnDownloadButtonClick()
