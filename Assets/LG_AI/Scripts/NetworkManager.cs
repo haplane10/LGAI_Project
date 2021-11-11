@@ -88,6 +88,8 @@ public class NetworkManager : MonoBehaviour
         }
 
         www.Dispose();
+
+        ChangeScene(4);
     }
 
     public void OnDownloadButtonClick()
@@ -114,7 +116,10 @@ public class NetworkManager : MonoBehaviour
         }
     }
 
-    
+    public void ChangeScene(int _idx)
+    {
+        GameManager.Instance.ChangeScene(_idx);
+    }
 }
 
 [System.Serializable]
