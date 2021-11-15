@@ -15,7 +15,7 @@ public class NetworkManager : MonoBehaviour
     [SerializeField] Image[] uploadImages;
     [SerializeField] TextMeshProUGUI uploadProgress;
     [SerializeField] GameObject videoPrefab;
-
+    public bool isShowVideoList = false;
     public string VideoFilePath { get => videoFilePath; set => videoFilePath = value; }
 
     private void Awake()
@@ -25,7 +25,10 @@ public class NetworkManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (isShowVideoList)
+        {
+            OnDownloadButtonClick();
+        }
     }
 
     // Update is called once per frame
@@ -90,7 +93,7 @@ public class NetworkManager : MonoBehaviour
 
         www.Dispose();
 
-        ChangeScene(4);
+        ChangeScene(5);
     }
 
     public void OnDownloadButtonClick()
@@ -126,7 +129,7 @@ public class NetworkManager : MonoBehaviour
             var _videoBtn = _videoPrefab.GetComponent<VideoBtn>();
             _videoBtn.videoData = _data;
             var _videoName = _videoPrefab.GetComponentInChildren<Text>();
-            _videoName.text = _data.platform_key;
+            _videoName.text = _data.id.ToString();
         }
     }
 

@@ -5,6 +5,7 @@ using UnityEngine.Video;
 
 public class VideoBtn : MonoBehaviour
 {
+    public GameObject videoPreviewScreen;
     public data videoData;
 
     // Start is called before the first frame update
@@ -22,6 +23,7 @@ public class VideoBtn : MonoBehaviour
     
     public void OnPlayButtonClick()
     {
+        videoPreviewScreen.SetActive(true);
         var _videoPlayer = FindObjectOfType<VideoPlayer>();
         _videoPlayer.url = videoData.url;
         _videoPlayer.Play();
