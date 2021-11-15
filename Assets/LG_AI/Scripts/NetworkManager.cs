@@ -11,9 +11,10 @@ public class NetworkManager : MonoBehaviour
     public static NetworkManager Instance;
 
     private string videoFilePath;
-    private Data data = new Data();
+    public ShoeData shoeData;
     [SerializeField] Image[] uploadImages;
     [SerializeField] TextMeshProUGUI uploadProgress;
+    [SerializeField] GameObject videoPrefab;
 
     public string VideoFilePath { get => videoFilePath; set => videoFilePath = value; }
 
@@ -111,19 +112,44 @@ public class NetworkManager : MonoBehaviour
             }
             else
             {
-                Debug.Log(www.downloadHandler.text);
+                var json = www.downloadHandler.text;
+                Debug.Log(json);
+
+                shoeData = JsonUtility.FromJson<ShoeData>(www.downloadHandler.text);
             }
+        }
+
+        foreach (var _data in shoeData.data)
+        {
+            var _videoPrefab = Instantiate(videoPrefab, videoPrefab.transform.parent);
+            _videoPrefab.SetActive(true);
+            var _videoBtn = _videoPrefab.GetComponent<VideoBtn>();
+            _videoBtn.videoData = _data;
+            var _videoName = _videoPrefab.GetComponentInChildren<Text>();
+            _videoName.text = _data.platform_key;
         }
     }
 
     public void ChangeScene(int _idx)
     {
         GameManager.Instance.ChangeScene(_idx);
-    }
+    } 
 }
 
 [System.Serializable]
-public class Data
+public class ShoeData
 {
-    public string media;
+    public data[] data;
 }
+[System.Serializable]
+public class data
+{
+    public int id;
+    public string platform_key;
+    public string url;
+    public long size;
+    public string rdt;
+    public string udt;
+}
+
+
