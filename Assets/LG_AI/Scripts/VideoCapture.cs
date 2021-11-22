@@ -31,9 +31,9 @@ public class VideoCapture : MonoBehaviour
 
 
         Debug.Log($"Number of Camera : {devices.Length}");
-#if UNITY_EDITOR
+#if !UNITY_ANDROID
         backCamera = new WebCamTexture(devices[0].name, videoWidth, videoHeight);
-#elif UNITY_ANDROID
+#else 
         //for(int i = 0; i < devices.Length; i++)
         //{
         //    if (!devices[i].isFrontFacing)
@@ -41,14 +41,14 @@ public class VideoCapture : MonoBehaviour
                 backCamera = new WebCamTexture(devices[0].name, videoWidth, videoHeight);
         //    }
         //}
-#elif UNITY_IOS
-        for(int i = 0; i < devices.Length; i++)
-        {
-            if (!devices[i].isFrontFacing)
-            {
-                backCamera = new WebCamTexture(devices[0].name, videoWidth, videoHeight);
-            }
-        }
+//#elif UNITY_IOS
+//        for(int i = 0; i < devices.Length; i++)
+//        {
+//            if (!devices[i].isFrontFacing)
+//            {
+//                backCamera = new WebCamTexture(devices[0].name, videoWidth, videoHeight);
+//            }
+//        }
 #endif
 
         if (backCamera == null)
