@@ -44,7 +44,7 @@ namespace NatSuite.Examples {
             // Playback recording
             Debug.Log($"Saved recording to: {path}");
             pathText.text = path;
-            Handheld.PlayFullScreenMovie($"file://{path}");
+      //      Handheld.PlayFullScreenMovie($"file://{path}");
         }
         #endregion
 
