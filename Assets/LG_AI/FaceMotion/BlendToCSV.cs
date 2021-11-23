@@ -39,7 +39,6 @@ public class BlendToCSV : MonoBehaviour
     {
         int _count = skinnedMesh.sharedMesh.blendShapeCount;
         string _csv = string.Empty;
-        Debug.Log($"blendshape count is {_count}");
         
         for (int i = 0; i < _count; i++)
         {
