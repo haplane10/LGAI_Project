@@ -25,7 +25,7 @@ public class CSVParser : MonoBehaviour
     IEnumerator PlayBlendShape(float _delayTime)
     {
         yield return new WaitForSeconds(_delayTime);
-        animator.SetBool("Speech", true);
+        //animator.SetBool("Speech", true);
         foreach (var l in list)
         {
             foreach (var _l in l)
