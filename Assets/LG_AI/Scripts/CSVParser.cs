@@ -30,13 +30,22 @@ public class CSVParser : MonoBehaviour
         {
             foreach (var _l in l)
             {
-                var _idx = skinnedMesh.sharedMesh.GetBlendShapeIndex($"FACS_BSN.{_l.Key}");
+                var keyValue = _l.Key;
+                
+                if (keyValue.Contains("_L"))
+                    keyValue = keyValue.Replace("_L", "Left");
+
+                if (keyValue.Contains("_R"))
+                    keyValue = keyValue.Replace("_R", "Right");
+
+                var _idx = skinnedMesh.sharedMesh.GetBlendShapeIndex($"BS_Node.{keyValue}");
+                
                 skinnedMesh.SetBlendShapeWeight(_idx, float.Parse(_l.Value.ToString()) * 100);
             }
             yield return new WaitForFixedUpdate();
         }
 
-        animator.SetBool("Speech", false);
+        //animator.SetBool("Speech", false);
         for (int i = 0; i < skinnedMesh.sharedMesh.blendShapeCount; i++)
         {
             skinnedMesh.SetBlendShapeWeight(i, 0);
