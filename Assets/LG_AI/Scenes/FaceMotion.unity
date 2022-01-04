@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!137 &145817046 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -720298726770719842, guid: 899d4cc85a6ef5e498ed72b166706fbf, type: 3}
-  m_PrefabInstance: {fileID: 244219980}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &244219980
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -548,7 +543,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e42b897b14ae9cd4c871a1b31eeba83f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e42b897b14ae9cd4c871a1b31eeba83f, type: 3}
@@ -720,8 +715,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   motionAudio: {fileID: 244219982}
   delayTime: 0.15
-  motion: {fileID: 2037350123}
-  skinnedMesh: {fileID: 145817046}
+  motions:
+  - {fileID: 792570516}
+  - {fileID: 2037350123}
+  skinnedMeshes: []
 --- !u!4 &1513471493
 Transform:
   m_ObjectHideFlags: 0
